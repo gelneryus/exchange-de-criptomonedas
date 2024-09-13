@@ -50,13 +50,12 @@ public class RaspCashApplication {
 			String contrasenia1=passwordEncoder.encode("123456");
 			String contraseniaAdmin=passwordEncoder.encode("admin");
 			Usuario usuarioAdmin = new Usuario("admin",contraseniaAdmin,"admin","admin","admin");
-			Usuario usuario1= new Usuario("jmarderwald87@gmail.com",contrasenia1,"Juan Ignacio","Mardewrwald","Juani");
-			Usuario usuario2 = new Usuario("melba@mindhub.com",contrasenia1,"Melba","Morel","Melbita");
-			Usuario usuario3=new Usuario("ckerps@gmail.com",contrasenia1,"Cristian","Kerps","El Cris");
+			Usuario usuario1= new Usuario("gelneryus20@gmail.com",contrasenia1,"Joel","vallejos","J");
+
 			usuarioRepositorio.save(usuario1);
-			usuarioRepositorio.save(usuario2);
+
 			usuarioRepositorio.save(usuarioAdmin);
-			usuarioRepositorio.save(usuario3);
+
 
 			Billetera billetera1=new Billetera(utilidades.obtenerDireccionBilletera(), 3.5,1000000);
 			Billetera billetera2=new Billetera(utilidades.obtenerDireccionBilletera(), 0.5,1500000);
@@ -64,13 +63,13 @@ public class RaspCashApplication {
 			Billetera billetera4=new Billetera(utilidades.obtenerDireccionBilletera(), 3,2000000);
 
 			usuario1.setBilletera(billetera1);
-			usuario2.setBilletera(billetera2);
+
 			usuarioAdmin.setBilletera(billetera3);
-			usuario3.setBilletera(billetera4);
+
 			billetera1.setUsuario(usuario1);
-			billetera2.setUsuario(usuario2);
+
 			billetera3.setUsuario(usuarioAdmin);
-			billetera4.setUsuario(usuario3);
+
 
 			billeteraRepositorio.save(billetera1);
 			billeteraRepositorio.save(billetera2);
@@ -87,20 +86,19 @@ public class RaspCashApplication {
 
 			Carrito carrito2= new Carrito();
 			carritoRepositorio.save(carrito2);
-			usuario2.setCarrito(carrito2);
+
 
 			Carrito carrito3= new Carrito();
 			carritoRepositorio.save(carrito3);
-			usuario3.setCarrito(carrito3);
 
 			Carrito carritoAdmin= new Carrito();
 			carritoRepositorio.save(carritoAdmin);
 			usuarioAdmin.setCarrito(carritoAdmin);
 
 			usuarioRepositorio.save(usuario1);
-			usuarioRepositorio.save(usuario2);
+
 			usuarioRepositorio.save(usuarioAdmin);
-			usuarioRepositorio.save(usuario3);
+
 
 		//Creacion de algunas criptomonedas de prueba
 
