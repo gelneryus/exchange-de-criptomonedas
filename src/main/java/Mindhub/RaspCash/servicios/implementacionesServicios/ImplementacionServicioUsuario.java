@@ -4,7 +4,6 @@ import Mindhub.RaspCash.models.Billetera;
 import Mindhub.RaspCash.models.Carrito;
 import Mindhub.RaspCash.respositories.BilleteraRepositorio;
 import Mindhub.RaspCash.respositories.CarritoRepositorio;
-import Mindhub.RaspCash.servicios.EmailSenderService;
 import Mindhub.RaspCash.servicios.ServicioUsuario;
 import Mindhub.RaspCash.utilidades.Utilidades;
 import Mindhub.excepciones.ConflictException;
@@ -39,8 +38,6 @@ public class ImplementacionServicioUsuario implements ServicioUsuario {
 	@Autowired
 	CarritoRepositorio carritoRepositorio;
 
-	@Autowired
-	EmailSenderService emailSenderService;
 
     @Override
     public List<UsuarioDTO> obtenerUsuarios() {

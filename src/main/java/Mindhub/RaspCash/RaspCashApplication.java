@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
@@ -27,15 +25,7 @@ public class RaspCashApplication {
 	}
 
 
-	@EventListener(ApplicationReadyEvent.class)
-	public void triggerMail(){                //PARA QUE SEA MAS DINAMICO LO IDEAL SERIA HACER UNA VARIABLE PARA QUE SEA UN EMAIL DIFERENTE
-												// O QUE ENGLOBE ESTE SERVICIO ENTONCES QUEDA CONECTADO
-												//hablando del receptor del email
 
- 		/*	senderService.senSimpleEmailTo("gelneryus20@gmail.com",
-					"Para el registro, usted ha sido registrado con éxito y el mail del usuario",
-					"RASPCASH");*/
-	}
 
 	@Bean
 	public CommandLineRunner initData(UsuarioRepositorio usuarioRepositorio, BilleteraRepositorio billeteraRepositorio,
@@ -77,7 +67,7 @@ public class RaspCashApplication {
 			billeteraRepositorio.save(billetera4);
 
 			System.out.println(billetera1.getUsuario().getNombre());
-			System.out.println(billetera2.getUsuario().getNombre());
+		
 			System.out.println(billetera3.getUsuario().getNombre());
 
 			Carrito carrito1= new Carrito();

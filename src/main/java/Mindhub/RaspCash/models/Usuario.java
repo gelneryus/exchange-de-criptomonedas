@@ -54,7 +54,7 @@ public class Usuario {
         this.apellido = apellido;
         this.apodo = apodo;
         this.billetera=billetera;
-        billetera.setUsuario(this);
+
     }
 
 
