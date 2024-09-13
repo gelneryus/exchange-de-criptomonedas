@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap');
+
+.photos{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 200px;
+}
+
+img{
+    width: 250px;
+}
+
+.box{
+    width: 400px;
+    display: flex;
+    margin-left: 100px;   
+}
+
+.job{
+    
+    /* transform: rotate(90deg); */
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 20px;
+    /* margin-top: 65px; */
+}
+
+.descentrada{
+    padding-top: 50px;
+}
+
+.text{
+    width:50%;
+    margin-top: 1rem;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: large;
+}
+
+.name{
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+}
+
+
+.line{
+    background: black;
+    width: 50%;
+    height: 2px;
+    margin-left: 450px;
+}
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaspCash</title>
+
+
+    <script type="text/javascript" src="./web/js/jquery.js"></script>
+    <script type="text/javascript" src="./web/js/script2.js"></script>
+
+    <!--Estilos CSS-->
+    <link rel="stylesheet" href="./web/css/estilo.css">
+
+    <link rel="stylesheet" href="./web/css/style.css">
+
+
+    <!--FAVICON-->
+    <link rel="shortcut icon" href="web/img/Logoje.png">
+
+</head>
+
+<body>
+    <!-- El header comienza aquí -->
+    <header class="header bg-white10">
+
+        <div class="container">
+            <a href="index.html" class="logo bold white">Rasp<span class="lightpurple">Coin</span></a>
+
+            <div class="menu">
+                <a href="#">
+                    <div id="open_close" class="btn bg-purple wallet">Ingresar</div>
+                </a>
+
+                <a href="#">
+                    <div id="open_close2" class="btn bg-white10">Registro</div>
+                </a>
+
+            </div>
+
+            <div class="fas fa-wallet" id="wallet"></div>
+            <div class="fas fa-bars" id="bar"></div>
+        </div>
+    </header>
+    <!-- El login y register comienza aquí -->
+    <div id="appLogin">
+        <section>
+            <div id="login" class="container">
+                <div class="row justify-content-center pt-5 mt-5 m-1">
+                    <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
+
+                        <div class="form-group text-center pt-3">
+                            <h1 class="text-light">INICIAR SESIÓN</h1>
+                        </div>
+                        <div class="form-group mx-sm-4 pt-3">
+                            <input v-model="correo" type="text" class="form-control" placeholder="Ingrese su Usuario">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-3">
+                            <input v-model="password" type="password" class="form-control" placeholder="Ingrese su Contraseña">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-2">
+                            <a @click="iniciarSesion()" class="btn btn-block ingresar">INGRESAR</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="registro" class="container">
+                <div class="row justify-content-center pt-5 mt-5 m-1">
+                    <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
+
+                        <div class="form-group text-center pt-3">
+                            <h1 class="text-light">REGISTRARSE</h1>
+                        </div>
+                        <div class="form-group mx-sm-4 pb-3">
+                            <input v-model="nombre" type="text" class="form-control" placeholder="Ingrese su Nombre">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-3">
+                            <input v-model="apellido" type="text" class="form-control" placeholder="Ingrese su Apellido">
+                        </div>
+                        <div class="form-group mx-sm-4 pt-3">
+                            <input v-model="correo" type="email" class="form-control" placeholder="Ingrese su Correo">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-3">
+                            <input v-model="password" type="password" class="form-control" placeholder="Ingrese su Contraseña">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-3">
+                            <input v-model="apodo" type="text" class="form-control" placeholder="Apodo">
+                        </div>
+                        <div class="form-group mx-sm-4 pb-2">
+                            <a @click="registrarse()" class="btn btn-block ingresar">REGISTRARSE</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- La sección main comienza aquí -->
+    <main>
+        <div>
+            <p class="MoonText">La luna está hecha de Rasp</p>
+        </div>
+        <div>
+            <p class="MoonText2">Berries</p>
+        </div>
+        <div>
+            <img class="imagenIndex" src="web/img/Recurso 1@4x.png" alt="Imagen central de RaspBerries">
+        </div>
+
+        <h3 class="textoCentral">Compra, intercambia y gana criptomonedas en la plataforma descentralizada más popular de la galaxia.</h3>
+    </main>
+    <!-- La sección main finaliza aquí -->
+
+    <!-- preload -->
+    <!--     <div class="preload">
+        <div class="loadingio-spinner-spin-ecbmbwwrxu8">
+            <div class="ldio-vh027wh0dx">
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+ -->
+    <!-- La sección de Footer comienza aquí -->
+    <footer class="spacer10">
+        <div class="container row jc-between flexcol-s ta-center-s">
+            <div class="row flexcol spacebottom3-s">
+                <a href="#home" class="size2 bold white">Rasp<span class="lightpurple">Cash</span></a>
+                <p class="size2 halfwhite spacetop2">El mejor lugar para comprar NFT <br>del mundo, sumate a la
+                    <br>experiencia de comprar y vender<br> NFT
+                </p>
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <a href="#about" class="bold size2 white">Sobre Nosotros</a>
+                <a href="web/Terminos.html" class="size2 halfwhite spacetop2">Terminos & Condiciones</a>
+                <a href="web/preguntas.html" class="size2 halfwhite spacetop2">Preguntas Frecuentes</a>
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <a href="#" class="bold size2 white">Empresa</a>
+                <a href="web/equipo.html" class="size2 halfwhite spacetop2">Nuestro equipo</a>
+                <a href="web/Empleos.html" class="size2 halfwhite spacetop2">Trabaja con nosotros</a>
+                <a href="web/PoliticaPrivacidad.html" class="size2 halfwhite spacetop2">Politica de Privacidad</a>
+                <!-- <a href="#" class="size2 halfwhite spacetop2">Novedades</a> -->
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <h5 class="bold size2">Contacto</h5>
+                <a href="#" class="size2 halfwhite spacetop2">11 55559999</a>
+                <a href="mailto:adorableprogrammer@gmail.com" class="size2 halfwhite spacetop2">adorableprogrammer@gmail.com</a>
+                <div class="row jc-around spacetop2 jc-evenly-s">
+                    <a href="https://youtube.com" class="fab fa-youtube size2 halfwhite spacetop2"></a>
+                    <a href="https://instagram.com" class="fab fa-instagram size2 halfwhite spacetop2"></a>
+                </div>
+            </div>
+        </div>
+        <p class="size2 halfwhite spacetop5 ta-center">Creado por <span class="white bold">MorazZarnozaz</span> | Todos los derechos reservados</p>
+    </footer>
+    <!-- La sección de footer finaliza aquí -->
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="./web/js/login.js"></script>
+
+</body>
+
+</html>

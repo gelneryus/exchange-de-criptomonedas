@@ -1,0 +1,33 @@
+@media (min-width:300px) and (max-width :800px){
+
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+    h2{
+        margin-top:50px;
+    }
+
+    header{
+        margin-left: 100px;
+    }
+
+    .photos{
+        margin-left: 2px;
+
+    }
+    
+    .box{
+        margin-top: 50px;
+    }
+
+    .descentrada{
+        padding-top: 0px;
+    }
+    
+    .line{
+        height: 0;
+    }
+
+}

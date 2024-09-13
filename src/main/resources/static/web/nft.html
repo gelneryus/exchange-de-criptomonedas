@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- swiperjs cdn link -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+    <!-- google font link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--FAVICON-->
+    <link rel="shortcut icon" href="img/Logoje.png">
+    <title>RaspCash</title>
+</head>
+
+<body>
+    <!-- header section starts -->
+    <header class="header bg-white10">
+        <div class="container">
+            <a href="/index.html" class="logo bold white">Rasp<span class="lightpurple">Cash</span></a>
+
+            <div class="menu" id="appLogin">
+                <a href="NFT.html">NFT</a>
+                <a href="Crypto.html">Billetera</a>
+                <a href="DeFi.html">DeFi</a>
+                <a href="merchandising.html">Productos</a>
+                <a href="usuario.html">Usuario <i class="fas fa-user-alt"></i></a>
+                <a href="carrito.html"><span>🛒</span></a>
+                <a @click="cerrarSesion()"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+
+            <div class="fas fa-wallet" id="wallet"></div>
+            <div class="fas fa-bars" id="bar"></div>
+        </div>
+    </header>
+    <!-- header section ends -->
+
+    <!-- home section starts -->
+    <section id="home" class="spacetop15 spacebottom10">
+        <div class="container">
+            <div class="row jc-between ai-center col-reverse-s">
+                <div class="col5 col6-md col12-s ta-center-s">
+                    <h1 class="size5 bold spacebottom1">
+                        Crea, Vende & Colecciona tus propios NFT
+                    </h1>
+                    <!-- <p class="size2 spacebottom3 halfwhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nunc vulputate libero et velit.
+                    </p> -->
+
+                    <div class="row col8 col9-md jc-between spacebottom4 jc-evenly-s col12-s">
+                        <a href="#collections" class="btn bg-purple size2 white ">Explorar</a>
+                        <!-- <a href="#banner" class="btn bg-white10 size2 white ">Vender NFT</a> -->
+                    </div>
+
+                    <div class="row jc-between">
+                        <div class="ta-center">
+                            <p class="size3 bold">37k+</p>
+                            <p class="size2 halfwhite">Artworks</p>
+                        </div>
+                        <div class="ta-center">
+                            <p class="size3 bold">20k+</p>
+                            <p class="size2 halfwhite">Artist</p>
+                        </div>
+                        <div class="ta-center">
+                            <p class="size3 bold">99k+</p>
+                            <p class="size2 halfwhite">Aucations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col6 col12-s spacebottom3-s">
+                    <img src="img/heroimage.png" alt="" class="img-responsive float">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- home section ends -->
+
+    <!-- partner section starts -->
+    <section class="spacer5 spacer0-xs">
+        <div class="container row jc-between jc-around-md">
+            <img src="img/binance.svg" alt="" class="height6 img-responsive-md">
+            <img src="img/ethereum.svg" alt="" class="height6 img-responsive-md">
+            <img src="img/blockchain.svg" alt="" class="height6 img-responsive-md spacetop1-md">
+        </div>
+    </section>
+    <!-- partner section ends -->
+    <div id="appNFTs">
+
+        <!-- about section starts -->
+        <section id="about" class="spacer10">
+            <div class="container">
+                <h1 class="bold size4 ta-center">NFTs</h1>
+                <!-- <p class="spacebottom3 halfwhite size2 ta-center">
+                Conocé más acerca de los NFTs
+            </p> -->
+                <div class="row ai-center jc-between flexcol-s">
+                    <div class="col5 col10-s spacebottom2-s">
+                        <img src="img/about.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col6 col12-s ta-center-s">
+                        <h3 class="size3 bold">Obtener NFT Populares</h3>
+                        <p class="size2 spacetop1 spacebottom3 halfwhite">Un token no fungible (NFT) es una unidad de
+                            datos
+                            no intercambiable almacenada en una Blockchain, que se puede comercializar. Los tipos de
+                            unidades de datos NFT pueden asociarse con archivos digitales como fotos, videos y audio.
+                            Debido
+                            a que cada token es identificable de forma única. Puedes obtener aquí los mejores NFTs del
+                            mercado a un precio increíble. <br>
+                            <a href="#collections" class="btn bg-purple size2 white">Mostrar Más</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- about section ends -->
+        <!-- collections section starts -->
+        <section class="collections spacer10" id="collections">
+            <div class="container">
+                <h1 class="bold size4 ta-center">Colecciones</h1>
+                <p class="spacebottom3 halfwhite size2 ta-center">
+                    Conocé y obtené los NFTs más populares del mercado mundial.
+                </p>
+
+                <div class="row box-card jc-evenly-md">
+                    <div v-for="nft in nfts" class="col4 card collect bg-white10 col5-md col6-s" data-item="art">
+                        <img v-bind:src="nft.imagen" class="img-responsive" alt="">
+                        <div class="row jc-between spacetop2">
+                            <div>
+                                <p class="size2 halfwhite">
+                                    {{nft.nombre}}
+                                </p>
+                                <h5 class="size2 bold">Stock: {{nft.stock}}</h5>
+                            </div>
+                            <div>
+                                <p class="current halfwhite">Precio actual</p>
+                                <h5 class="size2 bold">$ {{currency(nft.valor)}} </h5>
+                            </div>
+                        </div>
+                        <a v-show="nft.stock" @click="agregarProductoAlCarrito(nft.id)" class="bid size2 ta-center">
+                            Añadir al carrito
+                        </a>
+                        <a v-show="!nft.stock" class="bid size2 ta-center">
+                            Sin stock
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- collections section ends -->
+
+        <!-- featured section starts -->
+        <section class="featured spacer10" id="featured">
+            <div class="container">
+                <h1 class="bold size4 ta-center">Obras Destacadas</h1>
+                <p class="spacebottom3 halfwhite size2 ta-center">
+                    Aquí podrás ver las obras más requeridas de la escena.
+                </p>
+                <div class="swiper card-slider row">
+                    <div class="swiper-wrapper">
+                        <div class="col4 col5-md col7-s swiper-slide" v-for="obraDestacada in obrasDestacadas">
+                            <div class="card bg-white10">
+                                <img v-bind:src="obraDestacada.imagen" class="img-responsive" alt="">
+                                <div class="row jc-between spacetop2">
+                                    <div>
+                                        <p class="size2 halfwhite">
+                                            {{obraDestacada.nombre}}
+                                        </p>
+                                        <h5 class="size2 bold">Stock: {{obraDestacada.stock}}</h5>
+                                    </div>
+                                    <div>
+                                        <p class="current halfwhite">Precio actual</p>
+                                        <h5 class="size2 bold">${{currency(obraDestacada.valor)}}</h5>
+                                    </div>
+                                </div>
+                                <a v-show="obraDestacada.stock" @click="agregarProductoAlCarrito(obraDestacada.id)"
+                                    class="bid size2 ta-center">
+                                    Añadir al carrito
+                                </a>
+                                <a v-show="!obraDestacada.stock" class="bid size2 ta-center">
+                                    Sin stock
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- featured section ends -->
+    </div>
+
+
+    <!-- creator section starts -->
+    <section class="creator spacer10" id="featured">
+        <div class="container">
+            <h1 class="bold size4 ta-center">Top Creadores</h1>
+            <p class="spacebottom3 halfwhite size2 ta-center">
+                Hacemos referencias a los creadores más importantes de la escena artista internacional actual </p>
+            <div class="swiper row creator-slider">
+                <div class="swiper-wrapper">
+                    <div class="col4 col5-md col7-s swiper-slide">
+                        <div class="card-creator bg-white10 ta-center">
+                            <img src="img/creator1.png" class="img-responsive" alt="">
+                            <img src="img/photo1.png" class="photo" alt="">
+                            <h5 class="spacer1 size2 bold">Marta Minujin</h5>
+                            <p class="spacebottom2 halfwhite desc">Excentrica creadora Argentina, maravilla al mundo con
+                                sus artes
+                            </p>
+                            <!-- <button class="follow ta-center bg-purple white">+ Seguir</button> -->
+                        </div>
+                    </div>
+                    <div class="col4 col5-md col7-s swiper-slide">
+                        <div class="card-creator bg-white10 ta-center">
+                            <img src="img/creator2.png" class="img-responsive" alt="">
+                            <img src="img/photo2.png" class="photo" alt="">
+                            <h5 class="spacer1 size2 bold">Patricio Guevara</h5>
+                            <p class="spacebottom2 halfwhite desc">Artista internacional de gran trayectoria, residente
+                                en Barcelona, España.
+                            </p>
+                            <!-- <button class="follow ta-center bg-purple white">+ Seguir</button> -->
+                        </div>
+                    </div>
+                    <div class="col4 col5-md col7-s swiper-slide">
+                        <div class="card-creator bg-white10 ta-center">
+                            <img src="img/creator3.png" class="img-responsive" alt="">
+                            <img src="img/photo3.png" class="photo" alt="">
+                            <h5 class="spacer1 size2 bold">Maria Vallejos</h5>
+                            <p class="spacebottom2 halfwhite desc">Inigualable técnica y desarrollo matricial de colores
+                                en 3D y 2D, artista única en su especie, inspirador y creador innato.
+                            </p>
+                            <!-- <button class="follow ta-center bg-purple white">+ Seguir</button> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- creator section ends -->
+
+    <!-- FAQ section starts -->
+   <!--  <section class="spacer10" id="faq">
+        <div class="container">
+            <h1 class="bold size4 ta-center">Preguntas Frecuentes</h1>
+            <p class="spacebottom3 halfwhite size2 ta-center">
+                Quieres hacer una nueva pregunta?
+            </p>
+            <div class="row jc-between">
+                <div class="box-faq col6 col12-s">
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                </div>
+                <div class="box-faq col6 col12-s">
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                    <div class="box spacebottom5">
+                        <div class="title row jc-between">
+                            <h3 class="size2 halfwhite">Lorem ipsum ipsum?</h3>
+                            <i class="fas fa-angle-down size2 halfwhite"></i>
+                        </div>
+                        <p class="answer size2 spacetop1 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates ratione ea officiis ad quam blanditiis, dignissimos adipisci suscipit nobis
+                            temporibus molestias fugiat quas possimus assumenda quod quae modi dolorem sed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- FAQ section ends -->
+
+    <!-- footer section starts -->
+    <footer class="spacer10">
+        <div class="container row jc-between flexcol-s ta-center-s">
+            <div class="row flexcol spacebottom3-s">
+                <a href="#home" class="size2 bold white">Rasp<span class="lightpurple">Cash</span></a>
+                <p class="size2 halfwhite spacetop2">El mejor lugar para comprar NFT <br>del mundo, sumate a la
+                    <br>experiencia de comprar y vender<br> NFT
+                </p>
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <a href="#about" class="bold size2 white">Sobre Nosotros</a>
+                <a href="#" class="size2 halfwhite spacetop2">Productos</a>
+                <a href="#" class="size2 halfwhite spacetop2">Recursos</a>
+                <a href="#" class="size2 halfwhite spacetop2">Terminos & Condiciones</a>
+                <a href="#faq" class="size2 halfwhite spacetop2">Preguntas Frecuentes</a>
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <a href="#" class="bold size2 white">Empresa</a>
+                <a href="equipo.html" class="size2 halfwhite spacetop2">Nuestro equipo</a>
+                <a href="#" class="size2 halfwhite spacetop2">Trabaja con nosotros</a>
+                <a href="#" class="size2 halfwhite spacetop2">Politica de Privacidad</a>
+                <a href="#" class="size2 halfwhite spacetop2">Novedades</a>
+            </div>
+            <div class="row flexcol spacebottom3-s">
+                <h5 class="bold size2">Contacto</h5>
+                <a href="#" class="size2 halfwhite spacetop2">11 55559999</a>
+                <a href="#" class="size2 halfwhite spacetop2">adorableprogrammer@gmail.com</a>
+                <div class="row jc-around spacetop2 jc-evenly-s">
+                    <a href="#" class="fab fa-youtube size2 halfwhite spacetop2"></a>
+                    <a href="#" class="fab fa-instagram size2 halfwhite spacetop2"></a>
+                </div>
+            </div>
+        </div>
+        <p class="size2 halfwhite spacetop5 ta-center">Creado por <span class="white bold">MorazZarnozaz</span> | Todos
+            los derechos reservados</p>
+    </footer>
+    <!-- footer section ends -->
+
+    <!-- SCRIPTS DE VUE, AXIOS, ETC -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link -->
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+
+    <!-- SCRIPT PARA LA FUNCIONALIDAD DE TRAER LOS NFTS DE LA API-->
+    <script src="js/nft.js"></script>
+
+</body>
+
+</html>
